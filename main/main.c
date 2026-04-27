@@ -1,7 +1,5 @@
 
 #include <stdio.h>
-
-#include "hardware/adc.h"
 #include "hardware/gpio.h"
 #include "pico/stdlib.h"
 
@@ -19,8 +17,9 @@ volatile bool luz_acesa = false;
 
 volatile bool pisca_r = false;
 
-alarm_id_t id_alarme_luz = -1;
-repeating_timer_t time_r;
+volatile id_alarme_luz = -1;
+
+volatile repeating_timer_t time_r;
 
 
 int64_t alarm_callback(alarm_id_t id, void *user_data) {
